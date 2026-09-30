@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Living with Colours: fourteen works on paper by Raghavi Sharma.">
+<title>Living with Colours</title>
+<meta name="robots" content="noindex, noimageindex, noarchive, noai, noimageai">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=Karla:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: one plate per work on a single grid. Artwork left; caption and installation photos right,
+   caption top flush with the artwork's top edge, last photo flush with its bottom edge. */
+:root {
+  --paper: #fbfaf8;
+  --rule: #e4e0da;
+  --ink: #1d1b19;
+  --ink-soft: #6a645d;
+  --accent: #c2185b;
+  --plate-bg: #ffffff;
+  --c1: #d81b72; --c2: #ec6a00; --c3: #c99700; --c4: #1f9e4a; --c5: #0891c4; --c6: #3456d1; --c7: #8a3fb5;
+  --shadow: 0 1px 2px rgba(40,30,20,.08), 0 8px 24px -10px rgba(40,30,20,.25);
+  --f-title: "Syne", "Helvetica Neue", Arial, sans-serif;
+  --f-head: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --f-display: "Crimson Pro", "Minion Pro", Georgia, serif;
+  --f-ui: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --maxw: 1180px;
+  --gap: clamp(16px, 2.2vw, 28px);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #161514; --rule: #2d2a27; --ink: #eeeae4; --ink-soft: #a39c94; --accent: #f06292; --plate-bg: #1f1d1b; --c1: #ff4f9a; --c2: #ff8a2b; --c3: #ffd23f; --c4: #3fd06d; --c5: #33c3f0; --c6: #6f8cff; --c7: #b57cff;
+  --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 30px -10px rgba(0,0,0,.8); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #161514; --rule: #2d2a27; --ink: #eeeae4; --ink-soft: #a39c94; --accent: #f06292; --plate-bg: #1f1d1b; --c1: #ff4f9a; --c2: #ff8a2b; --c3: #ffd23f; --c4: #3fd06d; --c5: #33c3f0; --c6: #6f8cff; --c7: #b57cff;
+  --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 30px -10px rgba(0,0,0,.8); color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-ui); font-size: 15px; line-height: 1.5 }
+.wrap { padding-inline: clamp(16px, 4vw, 48px); max-width: calc(var(--maxw) + 96px); margin-inline: auto }
+
+header.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.bar .wrap { display: flex; align-items: center; gap: 16px; padding-block: 10px }
+.bar .mark { margin-right: auto; font-family: var(--f-title); font-size: 1.05rem; font-weight: 600; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.bar .mark span { color: var(--ink-soft); font-family: var(--f-ui); font-size: .72rem; text-transform: uppercase; letter-spacing: .14em; margin-left: 10px }
+
+.mode { display: flex; flex: none; border: 1px solid var(--rule); border-radius: 999px; padding: 2px }
+.mode button { font: inherit; font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .14em; color: var(--ink-soft); background: none; border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer }
+.mode button[aria-pressed="true"] { background: var(--ink); color: var(--paper) }
+.mode button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+details.index { position: relative; flex: none }
+details.index summary {
+  list-style: none; cursor: pointer; font-size: .74rem; text-transform: uppercase; letter-spacing: .14em; font-weight: 600;
+  padding: 8px 14px; border: 1px solid var(--rule); border-radius: 999px; user-select: none;
+}
+details.index summary::-webkit-details-marker { display: none }
+details.index summary:focus-visible, .nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.nav {
+  position: absolute; right: 0; top: calc(100% + 8px); width: min(340px, calc(100vw - 32px));
+  max-height: min(70vh, 560px); overflow: auto; background: var(--paper); border: 1px solid var(--rule);
+  border-radius: 10px; box-shadow: var(--shadow); padding: 6px;
+}
+.nav a { display: grid; grid-template-columns: 2.2em 1fr; gap: 8px; align-items: baseline; padding: 8px 10px; border-radius: 6px; color: var(--ink); text-decoration: none }
+.nav a:hover { background: var(--rule) }
+.nav a small { color: var(--ink-soft); font-variant-numeric: tabular-nums; font-size: .74rem }
+.nav a em { font-family: var(--f-title); font-style: normal; font-weight: 500; font-size: .95rem }
+
+/* opening statement */
+.intro { padding-block: clamp(48px, 9vw, 120px) clamp(40px, 7vw, 96px); max-width: var(--maxw); margin-inline: auto; display: grid; grid-template-columns: 7fr 5fr; gap: var(--gap) }
+.intro h1 { font-family: var(--f-title); font-weight: 600; font-size: clamp(2.6rem, 7vw, 5.2rem); line-height: .98; letter-spacing: -.02em; margin: 0; text-wrap: balance }
+.intro h1 i { display: block; font-style: normal; font-weight: 600; color: var(--ink-soft) }
+.intro .by { margin: 18px 0 0; font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; color: var(--ink-soft) }
+.intro .statement { align-self: end; font-family: var(--f-head); font-weight: 400; font-size: 1.1rem; line-height: 1.6; max-width: 44ch; margin: 0; text-wrap: pretty; text-align: justify; -webkit-hyphens: auto; hyphens: auto; display: grid; gap: .8em }
+.intro .statement p { margin: 0 }
+.intro .statement strong { font-weight: 600 }
+
+/* plates */
+.works { display: grid; gap: clamp(72px, 11vw, 144px); padding-block: 0 clamp(64px, 9vw, 120px); max-width: var(--maxw); margin-inline: auto }
+.work { display: grid; grid-template-columns: 7fr 5fr; gap: var(--gap); scroll-margin-top: 72px; align-items: stretch; justify-content: center }
+.work > .frame { align-self: start }
+.work .side { display: flex; flex-direction: column; justify-content: space-between; gap: var(--gap); min-width: 0 }
+.cap { border-top: 1px solid var(--ink); padding-top: 12px; display: grid; gap: 6px }
+.cap .no { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); font-variant-numeric: tabular-nums }
+.cap h2 { font-family: var(--f-title); font-weight: 600; font-size: clamp(1.3rem, 2vw, 1.7rem); line-height: 1.12; letter-spacing: -.015em; margin: 0; text-wrap: balance }
+.cap dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; margin: 6px 0 0; font-size: .86rem }
+.cap dt { color: var(--ink-soft); text-transform: uppercase; letter-spacing: .12em; font-size: .7rem; padding-top: 3px }
+.cap dd { margin: 0 }
+.cap .note { margin: 8px 0 0; font-family: var(--f-head); font-size: .9rem; line-height: 1.55; color: var(--ink-soft); max-width: 46ch; text-wrap: pretty; text-align: justify; -webkit-hyphens: auto; hyphens: auto }
+.photos { display: grid; gap: var(--gap) }
+.photos.row { display: flex; align-items: flex-start }
+.photos.row > .frame { flex: var(--a) 1 0; min-width: 0 }
+
+.frame { position: relative; background: var(--plate-bg); box-shadow: var(--shadow); -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; line-height: 0 }
+.frame canvas { display: block; width: 100%; height: auto; pointer-events: none }
+.frame .shield { position: absolute; inset: 0; z-index: 1 }
+.frame.loading canvas { background: linear-gradient(100deg, var(--plate-bg) 30%, var(--rule) 50%, var(--plate-bg) 70%) 0 0 / 300% 100%; animation: shimmer 1.6s linear infinite }
+@keyframes shimmer { to { background-position: -150% 0 } }
+
+footer { border-top: 1px solid var(--rule); padding-block: 28px 56px; color: var(--ink-soft); font-size: .82rem }
+footer p { max-width: 64ch; margin: 0; text-align: justify; -webkit-hyphens: auto; hyphens: auto }
+footer strong { color: var(--ink); font-weight: 600 }
+
+@media (max-width: 760px) {
+  .intro { grid-template-columns: 1fr; gap: 28px }
+  .work { grid-template-columns: 1fr !important }
+  .work .side { display: contents }
+  .work .cap { order: -1 }
+  .work > .frame { width: 100%; max-width: var(--art-max, 100%); justify-self: center }
+  .photos { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); align-items: start }
+  .bar .mark span { display: none }
+  .mode button { padding: 6px 9px; letter-spacing: .08em }
+}
+@media (prefers-reduced-motion: reduce) { .frame.loading canvas { animation: none } html { scroll-behavior: auto } }
+html { scroll-behavior: smooth }
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0;-webkit-text-size-adjust:100%} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <div class="mark">Living with Colours<span>Raghavi Sharma</span></div>
+    <div class="mode" role="group" aria-label="Page mode">
+      <button type="button" id="mode-paper" data-mode="light" aria-pressed="false">Paper</button>
+      <button type="button" id="mode-dark" data-mode="dark" aria-pressed="false">Dark</button>
+    </div>
+    <details class="index" id="index">
+      <summary>Works</summary>
+      <nav class="nav" id="nav" aria-label="Works in this portfolio"></nav>
+    </details>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div>
+      <h1>Living with <i class="rainbow" aria-label="Colours"><span style="color:var(--c1)">C</span><span style="color:var(--c2)">o</span><span style="color:var(--c3)">l</span><span style="color:var(--c4)">o</span><span style="color:var(--c5)">u</span><span style="color:var(--c6)">r</span><span style="color:var(--c7)">s</span></i></h1>
+      <p class="by">Raghavi Sharma &middot; 14 works on paper</p>
+    </div>
+    <div class="statement" lang="en-GB">
+      <p><strong>Living with Colours</strong> is a series of artworks by Raghavi Sharma. As a lawyer, she first took up art as a way to relieve stress from almost a decade of litigation and advocacy.</p>
+      <p>The series explores the effect colour has on our everyday lives, and how essential it is to keeping us sane. Over the past few decades, colour has been quietly draining out of the world around us. A 2020 study titled “Colour &amp; Shape: Using Computer Vision to Explore the Science Museum Group Collection” found that everyday objects have grown steadily greyer over the years. Most new cars today are white, black, grey or silver. Minimalist interiors, desaturated films and TV, and a general lack of whimsy all play their part.</p>
+      <p>Working in markers, pens, and acrylics, often in hand-coloured grids of tiny squares, or whimsical lines, she pushes back. A former lawyer now, she asks us to look, to really look, at the colours in front of us and all around us.</p>
+    </div>
+  </section>
+  <div class="works" id="works"></div>
+</main>
+
+<footer class="wrap" lang="en-GB">
+  <p><strong>All artwork and photographs &copy; Raghavi Sharma.</strong> Please don't download, reproduce, or use these images for AI training without written permission.</p>
+</footer>
+
+<script>
+(function () {
+  // [title, size, materials, [image, width, height, seed]...]; first image is the artwork, the rest are photos.
+  // Image files are tile-shuffled on disk and reassembled on canvas here.
+  const A4 = "A4 (21 × 29.7 cm)", SM = "19.5 × 29.7 cm";
+  const WORKS = [
+    ["Keep Your Mask On", A4, "Markers on cardboard paper", [["05a",1200,1680,76465864],["05b",864,1200,76600487],["05c",1008,1200,76735110]], "Do you see? What I see? Or do you see what my mask sees?"],
+    ["Get Your Calm Through 1", A4, "Markers on paper", [["01a",1200,1680,72316308],["01b",1008,1200,72450931],["01c",1200,912,72585554]]],
+    ["Get Your Calm Through 2", A4, "Markers on paper", [["06a",1152,1680,77503253],["06b",1200,864,77637876]]],
+    ["Get Your Calm Through 3", SM, "Markers on paper", [["07a",1104,1680,78540642],["07b",1200,816,78675265]]],
+    ["Colour Blind Test: Cats or Friends?", A4, "Markers on cardboard paper", [["02a",1152,1680,73353697],["02b",1200,816,73488320],["02c",1104,1200,73622943]], "The title refers to the Ishihara test, the plates of coloured dots that opticians use to check colour vision. Shinobu Ishihara designed them in 1917, and a number or shape is hidden in each plate that some eyes can see and others can't. Some see three cats. For others, colours aren't always friends."],
+    ["Disco Lights", SM, "Markers on paper", [["03a",1104,1680,74391086],["03b",960,1200,74525709],["03c",1200,864,74660332]]],
+    ["Disco Lights 2", A4, "Markers on paper", [["10a",1200,1680,81652809],["10b",1200,1152,81787432]], "A play on colour theory: how the right colours, seen under different lights, can turn your own home into a disco."],
+    ["Disco Lights 3", A4, "Markers on paper", [["09a",1104,1680,80615420],["09b",912,1200,80750043]]],
+    ["Ganpati Bappa Morya", SM, "Markers on paper", [["04a",1056,1680,75428475],["04b",960,1200,75563098],["04c",1008,1200,75697721]]],
+    ["Eyes, Eyes Everywhere 1", A4, "Markers on cardboard paper", [["12a",1152,1680,83727587],["12b",1200,960,83862210],["12c",1056,1200,83996833]], "How many people do you see in a day? In a year? How many eyes are on you at all times?"],
+    ["Eyes, Eyes Everywhere 2", A4, "Markers on paper", [["08a",1200,1680,79578031],["08b",1008,1200,79712654],["08c",1200,960,79847277]], "Where is your mind's eye looking right now?"],
+    ["People, People Everywhere 1", SM, "Pen on paper", [["13a",1152,1680,84764976],["13b",912,1200,84899599],["13c",960,1200,85034222]], "Are they watching in, or are you watching out?"],
+    ["People, People Everywhere 2", SM, "Pen and markers on paper", [["11a",1104,1680,82690198],["11b",960,1200,82824821]], "People affect you, whether you know it or not. Keep an eye out for how your colours change."],
+    ["People, People Everywhere 3", SM, "Pen and markers on paper", [["14a",1104,1680,85802365],["14b",720,1200,85936988]]]
+  ];
+  const T = 48, pad = (n) => String(n).padStart(2, "0");
+
+  function rng(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function perm(n, seed) { const r = rng(seed), p = [...Array(n).keys()]; for (let i = n - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [p[i], p[j]] = [p[j], p[i]]; } return p; }
+
+  function frame([name, W, H, seed], label) {
+    const f = document.createElement("div"); f.className = "frame loading";
+    f.setAttribute("role", "img"); f.setAttribute("aria-label", label);
+    const c = document.createElement("canvas"); c.width = W; c.height = H;
+    const s = document.createElement("div"); s.className = "shield";
+    f.append(c, s);
+    return { el: f, c, name, W, H, seed };
+  }
+
+  const root = document.getElementById("works"), nav = document.getElementById("nav"), jobs = [], plates = [];
+  WORKS.forEach(([title, size, mat, imgs, note], i) => {
+    const art = document.createElement("article"); art.className = "work"; art.id = "work-" + (i + 1);
+    const main = frame(imgs[0], `${title}, ${mat.toLowerCase()}, ${size}.`);
+    const side = document.createElement("div"); side.className = "side";
+    const cap = document.createElement("div"); cap.className = "cap";
+    cap.innerHTML = `<span class="no">${pad(i + 1)} / ${pad(WORKS.length)}</span><h2></h2><dl><dt>Size</dt><dd></dd><dt>Medium</dt><dd></dd></dl>`;
+    cap.querySelector("h2").textContent = title;
+    const dd = cap.querySelectorAll("dd"); dd[0].textContent = size; dd[1].textContent = mat;
+    if (note) { const np = document.createElement("p"); np.className = "note"; np.lang = "en-GB"; np.textContent = note; cap.appendChild(np); }
+    const photos = document.createElement("div"); photos.className = "photos";
+    const ph = imgs.slice(1).map((m, n) => frame(m, `${title}, framed and photographed (view ${n + 1}).`));
+    ph.forEach((p) => { p.el.style.setProperty("--a", p.W / p.H); photos.appendChild(p.el); });
+    side.append(cap, photos); art.append(main.el, side); root.appendChild(art);
+    jobs.push(main, ...ph);
+    plates.push({ art, cap, side, photos, wide: title.startsWith("Colour Blind Test"), main: imgs[0], ph: imgs.slice(1) });
+
+    const a = document.createElement("a"); a.href = "#work-" + (i + 1);
+    a.innerHTML = `<small>${pad(i + 1)}</small><em></em>`; a.querySelector("em").textContent = title;
+    a.addEventListener("click", () => { document.getElementById("index").open = false; });
+    nav.appendChild(a);
+  });
+
+  // The artwork is capped so its full height fits the screen below the header; the right column is then
+  // sized so caption + photos end exactly at the artwork's bottom edge, and the plate is centred.
+  // Photos stack. Colour Blind Test is the one exception: its long note would squeeze the stack, so its
+  // photos sit side by side at equal height instead, which keeps that row wide.
+  function layout() {
+    const narrow = window.matchMedia("(max-width: 760px)").matches;
+    const maxH = Math.max(360, window.innerHeight - (document.querySelector("header.bar").offsetHeight + 72));
+    plates.forEach((p) => {
+      const ar = p.main[1] / p.main[2];
+      p.art.style.setProperty("--art-max", Math.round(maxH * ar) + "px");
+      if (narrow) { p.art.style.gridTemplateColumns = ""; p.photos.classList.remove("row"); return; }
+      const C = p.art.clientWidth, g = parseFloat(getComputedStyle(p.art).columnGap) || 24, W = C - g;
+      const n = p.ph.length;
+      const S = p.ph.reduce((s, m) => s + m[2] / m[1], 0);     // stacked: height per unit width
+      const R = p.ph.reduce((s, m) => s + m[1] / m[2], 0);     // side by side: summed aspect ratios
+      const set = (A, P, row) => { p.photos.classList.toggle("row", row); p.art.style.gridTemplateColumns = `${A}px ${P}px`; };
+      const forA = (A, c, row) => row ? (A / ar - c - g) * R + (n - 1) * g : (A / ar - c - n * g) / S;
+      function fit(row) {
+        let P = 0.42 * W, A = W - P;
+        for (let k = 0; k < 4; k++) {          // caption height depends on column width; settle it
+          set(A, P, row);
+          const c = p.cap.offsetHeight;
+          const fill = row ? (W / ar - c - g + (n - 1) * g / R) / (1 / R + 1 / ar)
+                           : (W / ar - c - n * g) / (S + 1 / ar);
+          A = Math.min(maxH * ar, W - Math.max(0.30 * W, Math.min(0.42 * W, fill)));
+          P = Math.min(W - A, forA(A, c, row));
+        }
+        return { A, P };
+      }
+      let row = false, r = fit(false);
+      if (p.wide && n > 1 && r.P < 0.30 * W) { row = true; r = fit(true); }
+      let { A, P } = r;
+      set(A, P, row);
+      for (let k = 0; k < 6 && p.side.scrollHeight > A / ar + 1; k++) {
+        P = Math.max(180, forA(A, p.cap.offsetHeight, row));
+        set(A, P, row);
+      }
+    });
+  }
+  layout();
+  if (document.fonts) document.fonts.ready.then(layout);
+  new ResizeObserver(() => layout()).observe(root);
+  window.addEventListener("resize", layout);
+
+  function draw(j) {
+    return new Promise((res) => {
+      const img = new Image();
+      img.decoding = "async";
+      img.onload = () => {
+        const cols = j.W / T, p = perm(cols * (j.H / T), j.seed), x = j.c.getContext("2d");
+        for (let i = 0; i < p.length; i++) {
+          const q = p[i];
+          x.drawImage(img, (i % cols) * T, Math.floor(i / cols) * T, T, T, (q % cols) * T, Math.floor(q / cols) * T, T, T);
+        }
+        x.font = "500 15px Karla, Arial, sans-serif"; x.textAlign = "right";
+        x.fillStyle = "rgba(255,255,255,.55)"; x.fillText("© Raghavi Sharma", j.W - 19, j.H - 17);
+        x.fillStyle = "rgba(0,0,0,.30)"; x.fillText("© Raghavi Sharma", j.W - 20, j.H - 18);
+        j.el.classList.remove("loading"); res();
+      };
+      img.onerror = () => res();
+      img.src = "w/" + j.name + ".jpg";
+    });
+  }
+  (async () => { for (let i = 0; i < jobs.length; i += 4) await Promise.all(jobs.slice(i, i + 4).map(draw)); })();
+
+  // deter saving: no context menu, dragging or long-press on the images
+  ["contextmenu", "dragstart", "selectstart"].forEach((ev) =>
+    root.addEventListener(ev, (e) => { if (e.target.closest(".frame")) e.preventDefault(); }));
+  // Paper / Dark switch: follows the device until the viewer picks one, then remembers it on this device
+  const html = document.documentElement, KEY = "lwc-mode";
+  const sysDark = window.matchMedia("(prefers-color-scheme: dark)");
+  function current() { return html.dataset.theme || (sysDark.matches ? "dark" : "light"); }
+  function paintButtons() { document.querySelectorAll(".mode button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === current()))); }
+  try { const saved = localStorage.getItem(KEY); if (saved === "light" || saved === "dark") html.dataset.theme = saved; } catch (e) {}
+  paintButtons();
+  sysDark.addEventListener?.("change", paintButtons);
+  document.querySelectorAll(".mode button").forEach((b) => b.addEventListener("click", () => {
+    html.dataset.theme = b.dataset.mode; paintButtons();
+    try { localStorage.setItem(KEY, b.dataset.mode); } catch (e) {}
+  }));
+
+  document.addEventListener("click", (e) => { const d = document.getElementById("index"); if (d.open && !d.contains(e.target)) d.open = false; });
+})();
+</script>
+</body>
+</html>
