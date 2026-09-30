@@ -272,7 +272,7 @@ html { scroll-behavior: smooth }
         j.el.classList.remove("loading"); res();
       };
       img.onerror = () => res();
-      img.src = "w/" + j.name + ".jpg";
+      img.src = j.name + ".jpg";
     });
   }
   (async () => { for (let i = 0; i < jobs.length; i += 4) await Promise.all(jobs.slice(i, i + 4).map(draw)); })();
